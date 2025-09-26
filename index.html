@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AKD Facilities Management — Integrated FM & Security Services (UK)</title>
+  <meta name="description" content="AKD Facilities Management delivers integrated FM solutions across the UK: Security, Cleaning & Janitorial, Maintenance & Repairs, Waste Management, and Front-of-House/Concierge." />
+
+  <!-- Favicon (your logo) -->
+  <link rel="icon" type="image/png" href="images/AKDFMlogo.png" />
+
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --paper:#ffffff;
+      --ink:#0d1b2a;
+      --muted:#5b6b7b;
+      --brand:#2452ff;
+      --brand-2:#00b3a4;
+      --line:#e4e9f2;
+      --radius:18px;
+      --shadow: 0 10px 25px rgba(14, 26, 58, .08);
+      --max:1200px;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:var(--bg);color:var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      scroll-behavior:smooth;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin-inline:auto;padding:0 1.1rem}
+    .section{padding:80px 0}
+
+    .top{
+      position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line);
+      backdrop-filter:saturate(120%) blur(6px);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px;
+    }
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:800}
+    .brand img{width:42px;height:42px}
+    .brand small{display:block;color:var(--muted);font-weight:600;letter-spacing:.2px}
+    nav ul{display:flex;gap:.7rem;list-style:none;margin:0;padding:0}
+    nav a{display:block;padding:.55rem .8rem;border-radius:12px}
+    nav a:hover{background:#edf2ff}
+    .burger{display:none;background:transparent;border:0;font-size:1.9rem}
+    @media (max-width:880px){
+      .burger{display:block}
+      nav ul{
+        display:none;position:absolute;left:0;right:0;top:70px;background:white;border-bottom:1px solid var(--line);
+        padding:10px;
+      }
+      nav ul.open{display:flex;flex-direction:column}
+    }
+
+    .hero{
+      position:relative;overflow:clip;background:
+        radial-gradient(1200px 400px at 70% -10%, rgba(36,82,255,.12), transparent 60%),
+        radial-gradient(900px 300px at 10% 10%, rgba(0,179,164,.10), transparent 60%);
+    }
+    .hero-grid{
+      display:grid;grid-template-columns: 1.1fr .9fr;gap:28px;align-items:center;min-height:68vh;padding:50px 0 70px
+    }
+    .hero-card{
+      background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+      padding:22px;box-shadow:var(--shadow)
+    }
+    h1{font-size:clamp(1.8rem,2.3vw + 1rem,3rem);line-height:1.15;margin:.2rem 0 .7rem 0}
+    .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+    .kpi{
+      background:#f3f7ff;border:1px dashed #cfe0ff;border-radius:14px;padding:.7rem;text-align:center;
+      font-weight:700;color:#27417b
+    }
+    .hero-media{
+      border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)
+    }
+    .hero-media img{height:100%;width:100%;object-fit:cover;aspect-ratio: 16/11}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:.6rem;border-radius:999px;border:1px solid #cfe0ff;
+      padding:.85rem 1.1rem;font-weight:700;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:white;
+      box-shadow:var(--shadow);transition:transform .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.ghost{background:#fff;color:var(--ink)}
+
+    .tabs{
+      background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+      overflow:hidden
+    }
+    .tablist{
+      display:flex;flex-wrap:wrap;gap:8px;padding:8px;border-bottom:1px solid var(--line);background:#f7f9fd
+    }
+    .tab{
+      padding:.6rem .9rem;border-radius:999px;border:1px solid var(--line);background:white;color:var(--ink);
+      cursor:pointer;font-weight:700
+    }
+    .tab[aria-selected="true"]{background:#edf2ff;border-color:#bcd0ff}
+    .tabpanel{display:none;padding:18px}
+    .tabpanel.active{display:block}
+    .svc{
+      display:grid;grid-template-columns: 1fr 1fr;gap:16px;align-items:stretch
+    }
+    .svc .media{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+    .svc .media img{object-fit:cover;width:100%;height:100%;aspect-ratio:16/10}
+    .svc .copy{background:#f9fbff;border:1px solid var(--line);border-radius:14px;padding:16px}
+    @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .svc{grid-template-columns:1fr} }
+
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+    .step{
+      background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:left;box-shadow:var(--shadow)
+    }
+    .step b{display:inline-block;margin-bottom:.25rem}
+    @media (max-width:900px){ .timeline{grid-template-columns:1fr 1fr} }
+    @media (max-width:520px){ .timeline{grid-template-columns:1fr} }
+
+    .contact{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch
+    }
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .map{border-radius:16px;border:1px solid var(--line);background:url('images/akd-map.jpg') center/cover no-repeat;min-height:280px}
+    @media (max-width:900px){ .contact{grid-template-columns:1fr} }
+
+    footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted)}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .sticky-contact{
+      position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:10px;
+    }
+    .sticky-contact .btn{box-shadow:0 8px 20px rgba(0,0,0,.18)}
+    @media (min-width:860px){ .sticky-contact{display:none} }
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="AKD Facilities Management Home">
+        <img src="images/AKDFMlogo.png" alt="AKD logo">
+        <span>AKD Facilities Management<br><small>Integrated FM • UK Wide</small></span>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How We Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="tab" href="mailto:info@akdfm.com">info@akdfm.com</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <header id="top" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card reveal">
+        <span class="tab" aria-hidden="true" style="background:#eef7ff;border-color:#cfe0ff">Single supplier. Total care.</span>
+        <h1>Smart, reliable facilities management—<span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">tailored to your site</span>.</h1>
+        <p style="color:var(--muted);max-width:60ch">
+          From security to cleaning, maintenance, waste, and concierge, AKD delivers coordinated FM that keeps buildings safe, clean, and running efficiently.
+        </p>
+        <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.6rem">
+          <a class="btn" href="tel:07776761120">📞 07776&nbsp;761&nbsp;120</a>
+          <a class="btn ghost" href="mailto:info@akdfm.com">✉️ info@akdfm.com</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi">24/7 Cover</div>
+          <div class="kpi">SLA-Driven</div>
+          <div class="kpi">UK Wide</div>
+        </div>
+      </div>
+
+      <div class="hero-media reveal" aria-hidden="true">
+        <img src="images/akd-hero.jpg" alt="Facilities team at work">
+      </div>
+    </div>
+  </header>
+
+  <section id="services" class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:12px">
+        <h2 style="margin:0 0 .3rem 0">Our Services</h2>
+        <p style="color:var(--muted);margin:0">Five core solutions, one accountable partner.</p>
+      </div>
+
+      <div class="tabs reveal" id="svcTabs">
+        <div class="tablist" role="tablist" aria-label="Services tabs">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="tab-security" id="t1">Security Services</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-cleaning" id="t2">Cleaning & Janitorial</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-maint" id="t3">Maintenance & Repairs</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-waste" id="t4">Waste Management</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-concierge" id="t5">Front-of-House / Concierge</button>
+        </div>
+
+        <div class="tabpanel active" id="tab-security" role="tabpanel" aria-labelledby="t1">
+          <div class="svc">
+            <div class="media"><img src="images/service-security.jpg" alt="Professional security guarding"></div>
+            <div class="copy">
+              <h3>Security Services</h3>
+              <p>Licensed officers and proactive measures to protect people, property, and reputation.</p>
+              <ul>
+                <li>Manned guarding & mobile patrols</li>
+                <li>Door Supervision & event security</li>
+                <li>CCTV monitoring & key holding</li>
+                <li>Alarm response & incident reporting</li>
+              </ul>
+              <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+                <a class="btn" href="tel:07776761120">Call for a quote</a>
+                <a class="btn ghost" href="mailto:info@akdfm.com">Email details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="tab-cleaning" role="tabpanel" aria-labelledby="t2">
+          <div class="svc">
+            <div class="media"><img src="images/service-cleaning.jpg" alt="Cleaning and janitorial services"></div>
+            <div class="copy">
+              <h3>Cleaning & Janitorial</h3>
+              <p>Daily cleans, periodic deep cleans, and hygiene services that keep spaces healthy and welcoming.</p>
+              <ul>
+                <li>Office, retail & education cleaning</li>
+                <li>Washroom & consumables management</li>
+                <li>Floor care & window cleaning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="tab-maint" role="tabpanel" aria-labelledby="t3">
+          <div class="svc">
+            <div class="media"><img src="images/service-maintenance.jpg" alt="Maintenance and repairs"></div>
+            <div class="copy">
+              <h3>Maintenance & Repairs</h3>
+              <p>Planned and reactive works delivered by vetted engineers to keep assets operational.</p>
+              <ul>
+                <li>PPM schedules & compliance checks</li>
+                <li>Reactive call-outs</li>
+                <li>Small works & handyman tasks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="tab-waste" role="tabpanel" aria-labelledby="t4">
+          <div class="svc">
+            <div class="media"><img src="images/service-waste.jpg" alt="Waste and recycling"></div>
+            <div class="copy">
+              <h3>Waste Management</h3>
+              <p>Efficient, compliant waste and recycling streams to cut cost and environmental impact.</p>
+              <ul>
+                <li>General & recycling collections</li>
+                <li>Confidential waste & WEEE</li>
+                <li>Reporting & diversion-from-landfill</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="tab-concierge" role="tabpanel" aria-labelledby="t5">
+          <div class="svc">
+            <div class="media"><img src="images/service-concierge.jpg" alt="Front-of-house concierge"></div>
+            <div class="copy">
+              <h3>Front-of-House / Concierge</h3>
+              <p>Welcoming, brand-aligned reception and concierge teams with security awareness.</p>
+              <ul>
+                <li>Reception cover & visitor management</li>
+                <li>Helpdesk & mailroom services</li>
+                <li>Access control & pass issuing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:18px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+        <img src="images/gallery-1.jpg" alt="Site 1" style="border-radius:12px;border:1px solid var(--line)">
+        <img src="images/gallery-2.jpg" alt="Site 2" style="border-radius:12px;border:1px solid var(--line)">
+        <img src="images/gallery-3.jpg" alt="Site 3" style="border-radius:12px;border:1px solid var(--line)">
+        <img src="images/gallery-4.jpg" alt="Site 4" style="border-radius:12px;border:1px solid var(--line)">
+        <img src="images/gallery-5.jpg" alt="Site 5" style="border-radius:12px;border:1px solid var(--line)">
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="section" style="padding-top:50px">
+    <div class="container">
+      <div class="reveal" style="text-align:center">
+        <h2 style="margin:0 0 .3rem 0">How We Work</h2>
+        <p style="color:var(--muted);margin:0">Simple, accountable, measurable.</p>
+      </div>
+      <div class="timeline">
+        <div class="step reveal"><b>1) Discover</b><br>Site survey, risk review, and KPIs.</div>
+        <div class="step reveal"><b>2) Mobilise</b><br>Onboarding, TUPE (if applicable), site files & inductions.</div>
+        <div class="step reveal"><b>3) Deliver</b><br>Integrated schedules,
